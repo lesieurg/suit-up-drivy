@@ -1,33 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>CSS/HTML Workshop with Drivy</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
-    </div>
-    <div id="rental">
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
-    <script id="template" type="x-tmpl-mustache">
-      {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
         </div>
-      {{/actors}}
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
-    <script src="drivy.js"></script>
-    <script src="index.js"></script>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+            <li>
+              <button type="button" class="btn btn-default" aria-label="plane">
+                <span class="glyphicon glyphicon-plane" aria-hidden="true" ></span>
+              voyages</button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-default" aria-label="bed">
+              <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
+              hotels</button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-default" aria-label="enveloppe">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+              contact</button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-default" aria-label="euro">
+              <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+              donation</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!--     <h1>Suit up</h1>
+ -->    
+    <div id="bloc">
+      <div class="form-group row" id="car" type="text">
+        <label for="example-text-input" class="col-2 col-form-label">Car model</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="BMW serie 3" id="carmodel"  placeholder="Car model">
+        </div>
+      </div>
+
+      <div class="form-group row" id ="day" >
+        <label for="example-number-input" class="col-2 col-form-label">Price by day</label>
+        <div class="col-10">
+          <input class="form-control" type="number" value="59" id="day">
+        </div>
+      </div>
+
+      <div class="form-group row" id ="kmprice" >
+        <label for="example-number-input" class="col-2 col-form-label">Price by km</label>
+        <div class="col-10">
+          <input class="form-control" type="number" value="10" id="km">
+        </div>
+      </div>
+
+      <div id="rental">
+        <div class="form-group row" id="bdate">
+          <label for="example-date-input" class="col-2 col-form-label">Rental begin date</label>
+          <div class="col-10">
+            <input class="form-control" type="date" value="2011-08-19" id="Begindate">
+          </div>
+        </div>
+
+        <div class="form-group row" id="edate">
+          <label for="example-date-input" class="col-2 col-form-label">Rental end date</label>
+          <div class="col-10">
+            <input class="form-control" type="date" value="2011-08-22" id="Enddate">
+          </div>
+        </div>
+        <div class="form-group row" id ="km" >
+          <label for="example-number-input" class="col-2 col-form-label">Distance in km</label>
+          <div class="col-10">
+            <input class="form-control" type="number" value="90" id="km">
+          </div>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="">
+            Deductible option
+          </label>
+        </div>
+
+        <button type="button" id="compute" class="btn btn-success">Success</button>
+        
+        <div id="actors"></div>
+        
+        <script id="template" type="x-tmpl-mustache">
+          {{#actors}}
+            <div class="actor">
+              <span>{{who}}</span>
+              <span>{{type}}</span>
+              <span>{{amount}}</span>
+            </div>
+          {{/actors}}
+        </script>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>

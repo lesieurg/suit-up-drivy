@@ -1,0 +1,35 @@
+body{
+	margin: 0;
+/*background: url(images/background.jpg);
+*/    background-size: 1440px 800px;
+}
+
+h1{
+	text-align: center;
+}
+
+.navbar {
+	margin-bottom: 0;
+    border-radius: 0;
+}
+
+.container-fluid {
+	padding: 80px;
+}
+
+.navbar-inverse {
+    opacity:0.8;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+div#bloc{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+/*    background-color: white;
+*/
+	padding: 100px;
+	
+}
